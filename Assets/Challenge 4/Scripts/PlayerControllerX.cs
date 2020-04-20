@@ -14,6 +14,8 @@ public class PlayerControllerX : MonoBehaviour
 
     private float normalStrength = 10; // how hard to hit enemy without powerup
     private float powerupStrength = 25; // how hard to hit enemy with powerup
+
+    public ParticleSystem boostParticles;
     
     void Start()
     {
@@ -43,10 +45,8 @@ public class PlayerControllerX : MonoBehaviour
         }
     }
 
-    // Coroutine to count down powerup duration
-    IEnumerator PowerupCooldown()
+    void PowerupCooldown()
     {
-        yield return new WaitForSeconds(powerUpDuration);
         hasPowerup = false;
         powerupIndicator.SetActive(false);
     }
